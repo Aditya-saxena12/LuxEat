@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxEat | Exquisite Dining Queue & Reservations</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="bg-gradient"></div>
+    <div class="bg-image-overlay"></div>
+
+    <!-- Top Info Bar -->
+    <div
+        style="position: fixed; top: 0; left: 0; width: 100%; padding: 1rem 3rem; display: flex; justify-content: space-between; z-index: 10; font-size: 0.85rem; letter-spacing: 1px;">
+        <div style="color: var(--gold);">
+            Sector 18, Noida, Uttar Pradesh, India - 201301
+        </div>
+        <div style="color: var(--gold); border-left: 1px solid rgba(212,175,55,0.3); padding-left: 2rem;">
+            Hours: 10:00 AM - 11:00 PM
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirm-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h2>Confirmed!</h2>
+            <p id="confirm-text">Thanks for the reservation! Tasty food is waiting....</p>
+            <button class="modal-close-btn" onclick="closeModal('confirm-modal')">Wonderful</button>
+        </div>
+    </div>
+
+    <!-- Bad Time Modal -->
+    <div id="bad-time-modal" class="modal-overlay">
+        <div class="modal-content" style="border-color: #ff4444; box-shadow: 0 0 50px rgba(255, 68, 68, 0.2);">
+            <h2 style="color: #ff4444;">Uh-Oh!</h2>
+            <p>Bad time request....We don't serve at that time</p>
+            <button class="modal-close-btn" style="background: #ff4444;" onclick="closeModal('bad-time-modal')">I
+                See</button>
+        </div>
+    </div>
+
+    <main class="lux-container">
+        <!-- Landing Section -->
+        <section class="landing-info">
+            <h1>LuxEat</h1>
+            <p>Experience the art of fine dining without the wait. Our intelligent concierge manages every detail of
+                your reservation and virtual queue, so you can focus on the flavor.</p>
+
+            <div style="margin-top: 3rem; display: flex; gap: 2rem;">
+                <div>
+                    <h2 id="dynamic-tables" style="color: var(--gold); font-size: 2rem;">12</h2>
+                    <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Tables Free</p>
+                </div>
+                <div style="border-left: 1px solid rgba(255,255,255,0.1); padding-left: 2rem;">
+                    <h2 id="dynamic-wait" style="color: var(--gold); font-size: 2rem;">~15m</h2>
+                    <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Est. Wait</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chatbot Window -->
+        <section class="chat-window">
+            <header class="chat-header">
+                <div class="status"></div>
+                <div>
+                    <h3>Lux Concierge</h3>
+                    <p style="font-size: 0.7rem; color: var(--text-muted);">Always at your service</p>
+                </div>
+            </header>
+
+            <div id="chat-messages" class="chat-messages">
+                <!-- Messages will appear here -->
+                <div class="message bot">
+                    Greetings. I am Lux, your digital concierge. How may I assist your dining experience today?
+                    <div class="quick-actions">
+                        <span class="action-chip" onclick="handleQuickAction('Join Queue')">Join Queue</span>
+                        <span class="action-chip" onclick="handleQuickAction('Reserve Table')">Reserve Table</span>
+                        <span class="action-chip" onclick="handleQuickAction('Wait Time')">Check Wait Time</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-input-area">
+                <input type="text" id="chat-input" placeholder="Type your request here..." autocomplete="off">
+                <button class="send-btn" id="send-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

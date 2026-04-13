@@ -1,0 +1,288 @@
+:root {
+    --bg-dark: #0f0f0f;
+    --bg-soft: #1a1a1a;
+    --gold: #d4af37;
+    --gold-light: #f1d279;
+    --text-main: #f5f5f5;
+    --text-muted: #a0a0a0;
+    --accent: #bc9c22;
+    --glass: rgba(255, 255, 255, 0.05);
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Background Decoration */
+.bg-gradient {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #0f0f0f 100%);
+    z-index: -2;
+}
+
+.bg-image-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: url('luxeat_interior.png') center/cover no-repeat;
+    z-index: -1;
+    opacity: 0.4;
+    mask-image: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0));
+    -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0));
+}
+
+.lux-container {
+    width: 90%;
+    max-width: 1200px;
+    height: 85vh;
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+/* Landing Section */
+.landing-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.landing-info h1 {
+    font-size: 4.5rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+}
+
+.landing-info p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 500px;
+    line-height: 1.6;
+}
+
+/* Chatbot Widget */
+.chat-window {
+    background: var(--bg-soft);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    position: relative;
+    backdrop-filter: blur(10px);
+}
+
+.chat-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.chat-header .status {
+    width: 10px;
+    height: 10px;
+    background: #4caf50;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #4caf50;
+}
+
+.chat-header h3 {
+    color: var(--gold);
+    font-size: 1.25rem;
+}
+
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.chat-messages::-webkit-scrollbar {
+    width: 5px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+    background: var(--gold);
+    border-radius: 10px;
+}
+
+.message {
+    max-width: 85%;
+    padding: 12px 16px;
+    border-radius: 16px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    animation: fadeIn 0.3s ease forwards;
+}
+
+.message.bot {
+    align-self: flex-start;
+    background: var(--glass);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom-left-radius: 4px;
+}
+
+.message.user {
+    align-self: flex-end;
+    background: var(--gold);
+    color: #000;
+    font-weight: 500;
+    border-bottom-right-radius: 4px;
+}
+
+.chat-input-area {
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    gap: 0.75rem;
+}
+
+input#chat-input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 12px;
+    padding: 12px 16px;
+    color: white;
+    outline: none;
+    transition: var(--transition);
+}
+
+input#chat-input:focus {
+    border-color: var(--gold);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.send-btn {
+    background: var(--gold);
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.send-btn:hover {
+    transform: translateY(-2px);
+    background: var(--gold-light);
+}
+
+/* Quick Actions */
+.quick-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.action-chip {
+    padding: 6px 12px;
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: var(--gold);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.action-chip:hover {
+    background: rgba(212, 175, 55, 0.2);
+}
+
+/* Confirm Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.modal-content {
+    background: var(--bg-soft);
+    border: 1px solid var(--gold);
+    padding: 3rem;
+    border-radius: 24px;
+    text-align: center;
+    max-width: 500px;
+    box-shadow: 0 0 50px rgba(212, 175, 55, 0.3);
+    animation: scaleUp 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.modal-content h2 {
+    color: var(--gold);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.modal-content p {
+    color: var(--text-main);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.modal-close-btn {
+    background: var(--gold);
+    color: black;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.modal-close-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+}
+
+@keyframes scaleUp {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
