@@ -1,92 +1,56 @@
-# LuxEat 🍽️
-### Exquisite Dining Queue & Reservations Management System
+# LuxEat Intelligence | AI-Powered Dining Concierge
 
-LuxEat is a high-fidelity, dual-interface platform designed for luxury restaurants to manage bookings and virtual queues efficiently. It features a sophisticated AI-style chatbot concierge and a comprehensive staff administrative portal, all wrapped in a lavish, premium aesthetic.
+LuxEat is an ultra-premium, AI-driven restaurant management ecosystem designed to eliminate dining friction. By combining a sophisticated, Gemini-powered customer concierge with a real-time staff analytics portal, LuxEat transforms wait-line management into a seamless, high-end experience.
 
-![LuxEat Banner](https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1200&q=80) 
-*(Note: Replace with your own project screenshots)*
+## ✨ Core Features
 
----
+### 🤖 Lux Concierge (Customer Portal)
+*   **Gemini 1.5 Intelligence**: Powered by Google Gemini and LangChain, our digital concierge handles natural language inquiries with sophistication and flair.
+*   **Seamless Reservations**: Capture guest details, party size, and arrival times through an elegant conversational interface.
+*   **Virtual Queueing**: Allow guests to join the queue remotely and receive real-time updates on their position.
+*   **Instant Insights**: Immediate feedback on current table availability and estimated wait times.
 
-## ✨ Features
+### 🏛️ Staff Intelligence Portal (Admin Dashboard)
+*   **Table Inventory**: Real-time visualization of floor capacity (Occupied vs. Free).
+*   **Live Queue Management**: Proactively manage waiting guests.
+*   **Proactive Wait-Time Control**: Agents can manually adjust the global estimated wait time based on kitchen surge or floor conditions.
+*   **Assign & Clear**: Instant 'Assign Table' functionality that clears guests from the queue once seated.
+*   **Intelligence Insights**: Automated tracking of peak hours and efficiency metrics.
 
-### 👤 Customer Experience (Chatbot)
-- **Lux Concierge**: An elegant digital assistant that identifies guests by name and manages their dining needs.
-- **Smart Queue & Booking**: Join the virtual queue or make a priority reservation with real-time feedback.
-- **Time Intelligence**: Automatically validates reservation requests against restaurant operating hours (10:00 AM - 11:00 PM). Provides proactive denial for "Bad Time Requests".
-- **Dynamic Stats**: Displays real-time randomized "Tables Free" and "Estimated Wait Time" to simulate a bustling environment.
+## 🛠️ Technical Stack
 
-### 🏢 Staff Experience (Admin Portal)
-- **Live Table Grid**: Track 25+ tables with real-time occupancy status (Free vs. Occupied).
-- **Persistent Bridge**: Chatbot reservations automatically reflect at the top of the staff queue with a gold highlighted `#BOT` prefix.
-- **Unique Intelligence**: Dynamically generates unique waiting lists on every refresh using a pool of diverse Indian names.
-- **Insights**: Provides staff with resource optimization tips and peak hour predictions.
-
-### 🎨 Design & Aesthetics
-- **Lavish UI**: A curated color palette of **Burnished Gold (#D4AF37)** and **Rich Charcoal (#0F0F0F)**.
-- **High-End Visuals**: Features high-fidelity 5-star hotel interior backgrounds and glassmorphism effects.
-- **Responsive Experience**: Fluid transitions and centered confirmation popups for a premium feel.
-
----
-
-## 🛠️ Tech Stack
-
-- **Frontend**: HTML5, Vanilla CSS3, JavaScript (ES6)
-- **Backend**: Python (FastAPI)
-- **Styling**: Modern CSS Grid/Flexbox, Custom Animations
-- **Persistence**: Browser LocalStorage for high-speed client-side data sync
-
----
+*   **Backend**: FastAPI (Python)
+*   **AI Orchestration**: LangChain + Google Generative AI (Gemini 1.5 Flash)
+*   **Frontend**: Vanilla JavaScript (Async/Await), HTML5, CSS3 (Glassmorphism & High-end Dark Theme)
+*   **Data Capture**: Structured state-machine logic for reservations combined with LLM for natural inquiries.
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Python 3.8+
-- FastAPI & Uvicorn
-
-```bash
-pip install fastapi uvicorn
-```
+*   Python 3.9+
+*   Google API Key (for Gemini)
 
 ### Installation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/LuxEat.git
-   cd LuxEat
-   ```
-2. Run the backend server:
-   ```bash
-   python main.py
-   ```
-3. Access the interfaces:
-   - **Customer Portal**: `http://127.0.0.1:8000/`
-   - **Staff Dashboard**: `http://127.0.0.1:8000/admin.html`
+1.  Clone the repository and navigate to the project directory.
+2.  Install dependencies:
+    ```bash
+    pip install fastapi uvicorn langchain-google-genai python-dotenv
+    ```
+3.  Configure your environment in a `.env` file:
+    ```bash
+    GOOGLE_API_KEY=your_gemini_api_key_here
+    ```
 
----
-
-## 📂 Folder Structure
-
-```text
-LuxEat/
-├── index.html          # Main Customer Landing Page
-├── admin.html          # Staff Management Portal
-├── style.css           # Global Luxury Design System
-├── script.js           # Chatbot & Front-end Logic
-├── main.py             # FastAPI Server & API Endpoints
-├── models.py           # Pydantic Data Models
-├── luxeat_interior.png # Asset: Luxury Background
-└── README.md           # Documentation
+### Execution
+Start the LuxEat server:
+```bash
+python main.py
 ```
+*   **Customer View**: `http://127.0.0.1:8000`
+*   **Staff View**: `http://127.0.0.1:8000/admin.html`
+
+## 🎨 Design Philosophy
+LuxEat follows a **Luxury-Dark** design system, utilizing curated gold accents (`#d4af37`), glassmorphism effects, and premium serif typography. The interface is purposefully built to feel like an extension of a five-star hospitality service.
 
 ---
-
-## 📍 Location
-**Sector 18, Noida, Uttar Pradesh, India - 201301**  
-*Hours: 10:00 AM - 11:00 PM*
-
----
-
-## 📜 License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-Developed with ❤️ as a premium dining solution.
+*Created with elegance by LuxEat Intelligence Systems.*
